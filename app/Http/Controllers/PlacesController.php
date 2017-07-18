@@ -9,6 +9,16 @@ class PlacesController extends Controller {
     use RESTActions;
 
     /*
+      Getting the latest N places.
+    */
+    public function latest(Request $request, $count)
+    {
+      $m=self::MODEL;
+      $places=$m::take($count)->with(["type","city","offer"])->get();
+      return response()->json($places);
+    }
+
+    /*
       Getting all the places by the city_id
     */
     public function by_city(Request $request, $city_id){

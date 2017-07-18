@@ -34,6 +34,7 @@ $app->put('place/{id}', 'PlacesController@put');
 $app->delete('place/{id}', 'PlacesController@remove');
 $app->get("place/city/{city_id}","PlacesController@by_city");
 $app->post("place/characteristic","PlacesController@by_characteristic");
+$app->get("place/latest/{count}","PlacesController@latest");
 
 /**
  * Routes for resource state
