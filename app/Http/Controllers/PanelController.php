@@ -24,7 +24,14 @@
       }else{
         $user->token=password_hash($request->input("password"), PASSWORD_DEFAULT);
         $user->save();
-        return response()->json($user,200);
+        if($user->range===2){
+          $returning=(object)null;
+          $returning->email=$user->email;
+          $returning->token=$user->token;
+          $returning->api_token=env("API_TOKEN","");
+          return response()->json($returning,200);
+        }else
+          return response()->json($user,200);
       }
     }
 
