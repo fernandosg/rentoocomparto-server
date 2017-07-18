@@ -63,3 +63,12 @@ $factory->define(App\Type::class, function ($faker) {
         // Fields here
     ];
 });
+
+/**
+ * Factory definition for model App\Offer.
+ */
+$factory->define(App\Offer::class, function ($faker) {
+    return [
+        // Fields here
+    ];
+});
