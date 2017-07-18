@@ -33,6 +33,7 @@ $app->post('place', 'PlacesController@add');
 $app->put('place/{id}', 'PlacesController@put');
 $app->delete('place/{id}', 'PlacesController@remove');
 $app->get("place/city/{city_id}","PlacesController@by_city");
+$app->post("place/characteristic","PlacesController@by_characteristic");
 
 /**
  * Routes for resource state

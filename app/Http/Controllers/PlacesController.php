@@ -17,4 +17,14 @@ class PlacesController extends Controller {
       return $places;
     }
 
+    /*
+      Getting all the places that have some characteristic.
+      For now, receive the city_id and the price. Should be, maybe, have two prices like interval.
+    */
+    public function by_characteristic(Request $request){
+      $m = self::MODEL;
+      $places=$m::where("city_id",$request->input("city_id"))->where("price",">=",$request->input("price"))->get();
+      echo $places;
+    }
+
 }
