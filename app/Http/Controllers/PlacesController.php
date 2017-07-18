@@ -7,7 +7,13 @@ class PlacesController extends Controller {
     const MODEL = "App\Place";
 
     use RESTActions;
-
+    public function __construct(){
+      $this->middleware("auth",["only"=>[
+        "add",
+        "put",
+        "remove"
+      ]]);
+    }
     /*
       Getting the latest N places.
     */

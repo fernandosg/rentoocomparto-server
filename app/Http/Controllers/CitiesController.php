@@ -5,5 +5,11 @@ class CitiesController extends Controller {
     const MODEL = "App\City";
 
     use RESTActions;
-
+    public function __construct(){
+      $this->middleware("auth",["only"=>[
+        "add",
+        "put",
+        "remove"
+      ]]);
+    }
 }
