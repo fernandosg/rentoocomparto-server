@@ -51,3 +51,12 @@ $app->get('city/{id}', 'CitiesController@get');
 $app->post('city', 'CitiesController@add');
 $app->put('city/{id}', 'CitiesController@put');
 $app->delete('city/{id}', 'CitiesController@remove');
+
+/**
+ * Routes for resource type
+ */
+$app->get('type', 'TypesController@all');
+$app->get('type/{id}', 'TypesController@get');
+$app->post('type', 'TypesController@add');
+$app->put('type/{id}', 'TypesController@put');
+$app->delete('type/{id}', 'TypesController@remove');

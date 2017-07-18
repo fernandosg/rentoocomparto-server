@@ -54,3 +54,12 @@ $factory->define(App\City::class, function ($faker) {
         'state_id' => $faker->key,
     ];
 });
+
+/**
+ * Factory definition for model App\Type.
+ */
+$factory->define(App\Type::class, function ($faker) {
+    return [
+        // Fields here
+    ];
+});
