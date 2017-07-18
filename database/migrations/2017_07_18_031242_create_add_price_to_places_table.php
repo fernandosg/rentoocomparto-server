@@ -9,7 +9,7 @@ class CreateAddPriceToPlacesTable extends Migration
     public function up()
     {
       Schema::table('places', function($table) {
-          $table->decimal('price',5,2);
+          $table->decimal('price',9,2);
       });
     }
 
