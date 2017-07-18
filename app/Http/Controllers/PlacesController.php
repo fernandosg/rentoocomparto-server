@@ -14,7 +14,7 @@ class PlacesController extends Controller {
     public function by_city(Request $request, $city_id){
       $m = self::MODEL;
       $places=$m::where("city_id",$city_id)->get();
-      return $places;
+      return response()->json($places);
     }
 
     /*
@@ -24,7 +24,7 @@ class PlacesController extends Controller {
     public function by_characteristic(Request $request){
       $m = self::MODEL;
       $places=$m::where("city_id",$request->input("city_id"))->where("price",">=",$request->input("price"))->get();
-      echo $places;
+      echo response()->json($places);
     }
 
 }
