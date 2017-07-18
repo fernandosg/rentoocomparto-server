@@ -13,7 +13,7 @@ class PlacesController extends Controller {
     */
     public function by_city(Request $request, $city_id){
       $m = self::MODEL;
-      $places=$m::where("city_id",$city_id)->get();
+      $places=$m::where("city_id",$city_id)->with(["type","city","offer"])->get();
       return response()->json($places);
     }
 
@@ -23,8 +23,8 @@ class PlacesController extends Controller {
     */
     public function by_characteristic(Request $request){
       $m = self::MODEL;
-      $places=$m::where("city_id",$request->input("city_id"))->where("price",">=",$request->input("price"))->get();
-      echo response()->json($places);
+      $places=$m::where("city_id",$request->input("city_id"))->where("price",">=",$request->input("price"))->with(["type","city","offer"])->get();
+      return response()->json($places);
     }
 
 }
