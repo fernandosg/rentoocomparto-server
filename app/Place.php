@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model {
 
-    protected $fillable = ["title", "description", "user_id","city_id","type_id","price"];
+    protected $fillable = ["title", "description", "user_id","city_id","type_id","price","offer_id"];
 
     protected $dates = [];
 
