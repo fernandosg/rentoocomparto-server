@@ -11,6 +11,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -29,4 +30,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+    public static $rules = array(
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:8',
+    );
 }
