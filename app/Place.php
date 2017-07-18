@@ -22,5 +22,19 @@ class Place extends Model {
         return $this->belongsTo("App\User");
     }
 
+    public function type()
+    {
+      return $this->belongsTo("App\Type");
+    }
+
+    public function offer()
+    {
+      return $this->belongsTo("App\Offer");
+    }
+
+    public function city()
+    {
+      return $this->belongsTo("App\City");
+    }
 
 }

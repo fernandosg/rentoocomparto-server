@@ -35,4 +35,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'email' => 'required|email|unique:users',
         'password' => 'required|min:8',
     );
+
+    public function places(){
+      return $this->hasMany("App\Place");
+    }
 }
