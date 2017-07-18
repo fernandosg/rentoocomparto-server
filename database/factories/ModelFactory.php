@@ -36,3 +36,21 @@ $factory->define(App\Place::class, function ($faker) {
         'user_id' => $faker->key,
     ];
 });
+
+/**
+ * Factory definition for model App\State.
+ */
+$factory->define(App\State::class, function ($faker) {
+    return [
+        // Fields here
+    ];
+});
+
+/**
+ * Factory definition for model App\City.
+ */
+$factory->define(App\City::class, function ($faker) {
+    return [
+        'state_id' => $faker->key,
+    ];
+});

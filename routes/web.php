@@ -32,3 +32,21 @@ $app->get('place/{id}', 'PlacesController@get');
 $app->post('place', 'PlacesController@add');
 $app->put('place/{id}', 'PlacesController@put');
 $app->delete('place/{id}', 'PlacesController@remove');
+
+/**
+ * Routes for resource state
+ */
+$app->get('state', 'StatesController@all');
+$app->get('state/{id}', 'StatesController@get');
+$app->post('state', 'StatesController@add');
+$app->put('state/{id}', 'StatesController@put');
+$app->delete('state/{id}', 'StatesController@remove');
+
+/**
+ * Routes for resource city
+ */
+$app->get('city', 'CitiesController@all');
+$app->get('city/{id}', 'CitiesController@get');
+$app->post('city', 'CitiesController@add');
+$app->put('city/{id}', 'CitiesController@put');
+$app->delete('city/{id}', 'CitiesController@remove');
