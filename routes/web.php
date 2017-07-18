@@ -61,3 +61,12 @@ $app->get('type/{id}', 'TypesController@get');
 $app->post('type', 'TypesController@add');
 $app->put('type/{id}', 'TypesController@put');
 $app->delete('type/{id}', 'TypesController@remove');
+
+/**
+ * Routes for resource offer
+ */
+$app->get('offer', 'OffersController@all');
+$app->get('offer/{id}', 'OffersController@get');
+$app->post('offer', 'OffersController@add');
+$app->put('offer/{id}', 'OffersController@put');
+$app->delete('offer/{id}', 'OffersController@remove');
