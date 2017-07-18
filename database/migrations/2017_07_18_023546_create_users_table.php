@@ -12,7 +12,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email');
-            $table->string('passowrd');
+            $table->string('password');
             // Constraints declaration
 
         });
