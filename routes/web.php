@@ -14,3 +14,21 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+/**
+ * Routes for resource user
+ */
+$app->get('user', 'UsersController@all');
+$app->get('user/{id}', 'UsersController@get');
+$app->post('user', 'UsersController@add');
+$app->put('user/{id}', 'UsersController@put');
+$app->delete('user/{id}', 'UsersController@remove');
+
+/**
+ * Routes for resource place
+ */
+$app->get('place', 'PlacesController@all');
+$app->get('place/{id}', 'PlacesController@get');
+$app->post('place', 'PlacesController@add');
+$app->put('place/{id}', 'PlacesController@put');
+$app->delete('place/{id}', 'PlacesController@remove');
