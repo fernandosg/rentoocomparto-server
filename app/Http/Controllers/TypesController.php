@@ -6,6 +6,7 @@ class TypesController extends Controller {
 
     use RESTActions;
     public function __construct(){
+      $this->middleware('CORS');  
       $this->middleware("auth",["only"=>[
         "add",
         "put",
