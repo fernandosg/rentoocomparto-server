@@ -10,6 +10,10 @@
       $this->middleware("auth",["only"=>[
           "logout"
       ]]);
+      $this->middleware("CORS",["only"=>[
+        "signup_fb",
+        "signup"
+      ]]);
     }
 
     public function index(){
@@ -56,6 +60,29 @@
       $request->range=1;
       $this->validate($request,$m::$rules);
       return response()->json($m::create($request->all()),Response::HTTP_CREATED);
+    }
+
+    /*
+      Sign up endpoint with facebook
+    */
+    public function signup_fb(Request $request){
+      $m=self::MODEL_USER;
+      $blank=[];
+      $user=$m::where("email",$request->email)->where("fb_id",$request->fb_id)->first();
+      if(is_null($user)){
+        $blank["password"]=bin2hex(openssl_random_pseudo_bytes(8));
+        $blank["range"]=1;
+        $blank["email"]=$request->email;
+        $blank["token"]=password_hash($blank["password"], PASSWORD_DEFAULT);
+        $blank["fb_id"]=$request->fb_id;
+        $blank["name"]=$request->name;
+        $this->validate($request,$m::$rules);
+        return response()->json($m::create($blank),Response::HTTP_CREATED);
+      }else{
+        $user->token=password_hash($user->password, PASSWORD_DEFAULT);
+        $user->save();
+        return response()->json($user,200);
+      }
     }
 
   }
