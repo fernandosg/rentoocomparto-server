@@ -32,6 +32,8 @@ class AuthServiceProvider extends ServiceProvider
         // An API Token with the email of the user should be validate
 
         $this->app['auth']->viaRequest('api', function ($request) {
+          if(empty($request->header("token"))) //Always should be send a token with some content
+            return false;
           if($request->header("api_token")){
             $user=User::where('token', $request->header('token'))->where("email",$request->header("email"))->first();
             if(is_null($user)==false && env("API_TOKEN","")==$request->header("api_token")){
