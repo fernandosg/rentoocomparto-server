@@ -19,6 +19,7 @@ $app->get('/', function () use ($app) {
 * Routes for login and some extra stuff.
 */
 $app->post("login","PanelController@login");
+$app->get("logout","PanelController@logout");
 
 /**
  * Routes for resource user

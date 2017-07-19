@@ -7,11 +7,24 @@
   {
     const MODEL_USER = "App\User";
     public function __construct(){
-
+      $this->middleware("auth",["only"=>[
+          "logout"
+      ]]);
     }
 
     public function index(){
 
+    }
+
+    public function logout(Request $request){
+      $m=self::MODEL_USER;
+      $user=$m::where("email",$request->header("email"))->where("token",$request->header("token"))->first();
+      if(is_null($user)==false){
+        $user->token="";
+        $user->save();
+        return response()->json(null);
+      }
+      return response()->json(null,401);
     }
 
     public function login(Request $request){
