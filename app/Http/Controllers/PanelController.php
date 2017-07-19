@@ -11,6 +11,7 @@
           "logout"
       ]]);
       $this->middleware("CORS",["only"=>[
+        "logout",
         "signup_fb",
         "signup"
       ]]);
