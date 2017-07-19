@@ -20,6 +20,7 @@ $app->get('/', function () use ($app) {
 */
 $app->post("login","PanelController@login");
 $app->get("logout","PanelController@logout");
+$app->post("signup/email","PanelController@signup");
 
 $app->options('{all:.*}', ['middleware' => 'CORS', function() {
     return response('');

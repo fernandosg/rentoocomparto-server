@@ -48,5 +48,14 @@
       }
     }
 
+    /*
+      Sign up endpoint with email and password
+    */
+    public function signup(Request $request){
+      $m=self::MODEL_USER;
+      $request->range=1;
+      $this->validate($request,$m::$rules);
+      return response()->json($m::create($request->all()),Response::HTTP_CREATED);
+    }
 
   }
