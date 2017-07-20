@@ -85,3 +85,12 @@ $app->get('offer/{id}', 'OffersController@get');
 $app->post('offer', 'OffersController@add');
 $app->put('offer/{id}', 'OffersController@put');
 $app->delete('offer/{id}', 'OffersController@remove');
+
+/**
+ * Routes for resource address
+ */
+$app->get('address', 'AddressesController@all');
+$app->get('address/{id}', 'AddressesController@get');
+$app->post('address', 'AddressesController@add');
+$app->put('address/{id}', 'AddressesController@put');
+$app->delete('address/{id}', 'AddressesController@remove');

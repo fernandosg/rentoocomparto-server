@@ -72,3 +72,12 @@ $factory->define(App\Offer::class, function ($faker) {
         // Fields here
     ];
 });
+
+/**
+ * Factory definition for model App\Address.
+ */
+$factory->define(App\Address::class, function ($faker) {
+    return [
+        'city_id' => $faker->key,
+    ];
+});
