@@ -43,7 +43,7 @@ $app->delete('user/{id}', 'UsersController@remove');
  */
 $app->get('place', 'PlacesController@all');
 $app->get('place/{id}', 'PlacesController@get');
-$app->post('place', 'PlacesController@add');
+$app->post('place', 'PlacesController@create'); //$app->post('place', 'PlacesController@add');
 $app->put('place/{id}', 'PlacesController@put');
 $app->delete('place/{id}', 'PlacesController@remove');
 $app->get("place/city/{city_id}","PlacesController@by_city");
