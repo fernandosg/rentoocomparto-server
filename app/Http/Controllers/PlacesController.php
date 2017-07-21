@@ -26,7 +26,7 @@ class PlacesController extends Controller {
   public function find($path)
   {
       $m = self::MODEL;
-      $model = $m::where("path",$path)->with(["type","city","offer","address"])->first();
+      $model = $m::where("path",$path)->with(["type","city","offer","address","user"])->first();
       if(is_null($model)){
           return $this->respond(Response::HTTP_NOT_FOUND);
       }
