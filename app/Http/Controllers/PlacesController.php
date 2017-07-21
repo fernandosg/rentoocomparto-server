@@ -46,7 +46,10 @@ class PlacesController extends Controller {
         "offer_id"=>$param["offer_id"],
         "user_id"=>$param["user_id"],
         "address_id"=>$address->id]);
-        //echo "prueba";
+      $name_city=preg_replace('/\s+/',"-",$place->city->name);
+      $path=preg_replace('/\s+/', '-', $param["title"])."-".$name_city."".$place->id;
+      $place->path=$path;
+      $place->save();
       return $this->respond(Response::HTTP_CREATED, $place);
     }
 
