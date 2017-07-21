@@ -16,6 +16,19 @@ class PlacesController extends Controller {
     ]]);
   }
 
+  /*
+    Find by id
+  */
+  public function find($id)
+  {
+      $m = self::MODEL;
+      $model = $m::where("id",$id)->with(["type","city","offer","address"])->first();
+      if(is_null($model)){
+          return $this->respond(Response::HTTP_NOT_FOUND);
+      }
+      return $this->respond(Response::HTTP_OK, $model);
+  }
+
     public function create(Request $request){
       $m = self::MODEL;
       $m_address=self::ADDRESS_MODEL;

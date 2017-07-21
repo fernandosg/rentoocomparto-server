@@ -42,7 +42,7 @@ $app->delete('user/{id}', 'UsersController@remove');
  * Routes for resource place
  */
 $app->get('place', 'PlacesController@all');
-$app->get('place/{id}', 'PlacesController@get');
+$app->get('place/{id}', 'PlacesController@find');
 $app->post('place', 'PlacesController@create'); //$app->post('place', 'PlacesController@add');
 $app->put('place/{id}', 'PlacesController@put');
 $app->delete('place/{id}', 'PlacesController@remove');
