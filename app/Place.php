@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model {
 
-    protected $fillable = ["title", "description", "user_id","city_id","type_id","price","offer_id"];
+    protected $fillable = ["title", "description", "user_id","city_id","type_id","price","offer_id", "address_id"];
 
     protected $dates = [];
 
@@ -35,6 +35,11 @@ class Place extends Model {
     public function city()
     {
       return $this->belongsTo("App\City");
+    }
+
+    public function address()
+    {
+      return $this->belongsTo("App\Address");
     }
 
 }
