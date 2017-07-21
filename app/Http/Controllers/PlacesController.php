@@ -8,7 +8,11 @@ class PlacesController extends Controller {
   const ADDRESS_MODEL="App\Address";
   use RESTActions;
   public function __construct(){
-    $this->middleware('CORS');
+    $this->middleware('CORS',["only"=>[
+      "latest",
+      "find",
+      "by_characteristic"
+    ]]);
     $this->middleware("auth",["only"=>[
       "add",
       "put",
