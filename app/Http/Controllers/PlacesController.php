@@ -78,7 +78,7 @@ class PlacesController extends Controller {
     */
     public function by_characteristic(Request $request){
       $m = self::MODEL;
-      $places=$m::where("city_id",$request->input("city_id"))->where("price",">=",$request->input("min_price"))->where("price","<=",$request->input("max_price"))->where("type_id",$request->input("type_id"))->with(["type","city","offer","address"])->get();
+      $places=$m::where("city_id",$request->input("city_id"))->where("price",">=",$request->input("min_price"))->where("price","<=",$request->input("max_price"))->where("type_id",$request->input("type_id"))->where("offer_id",$request->input("offer_id"))->with(["type","city","offer","address"])->get();
       return response()->json($places);
     }
 
